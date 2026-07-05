@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Column Masonry | 40px Gap</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            background: #ffffff; 
+            padding: 40px; /* Increased padding to match the internal gaps */
+            margin: 0;
+        }
+
+        /* Container */
+        .masonry-three-columns {
+            margin: 0 auto;
+            max-width: 1800px; /* Wider container to accommodate large gaps */
+        }
+
+        /* 4-Column Item Calculation */
+        /* Formula: 25% minus (3 gaps of 40px divided by 4 items) approx */
+        .grid-item {
+            width: calc(25% - 30px); 
+            margin-bottom: 40px; /* Vertical gap */
+            float: left;
+        }
+
+        .grid-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 0; /* Sharp edges as requested */
+        }
+
+        /* Responsive scaling */
+        @media (max-width: 1200px) {
+            .grid-item { width: calc(33.33% - 27px); }
+        }
+        @media (max-width: 800px) {
+            .grid-item { width: calc(50% - 20px); }
+        }
+        @media (max-width: 500px) {
+            .grid-item { width: 100%; margin-bottom: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="masonry-three-columns" id="grid">
+        </div>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+    <script>
+        const grid = document.querySelector('.masonry-three-columns');
+        const totalImages = 24; 
+
+        // Generating filenames 001.jpg, 002.jpg, etc.
+        for (let i = totalImages; i >= 1; i--) {
+            const fileName = String(i).padStart(3, '0') + '.jpg';
+            const item = document.createElement('div');
+            item.className = 'grid-item';
+            item.innerHTML = `<img src="images/${fileName}" alt="Gallery Image ${fileName}">`;
+            grid.appendChild(item);
+        }
+
+        // Initialize Masonry with 40px gutter
+        const msnry = new Masonry(grid, {
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-item',
+            percentPosition: true,
+            gutter: 40, // Horizontal gap
+            transitionDuration: '0.3s'
+        });
+
+        // Trigger layout as images finish loading
+        imagesLoaded(grid).on('progress', function() {
+            msnry.layout();
+        });
+    </script>
+</body>
+</html>
