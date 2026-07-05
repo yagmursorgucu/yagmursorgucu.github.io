@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4-Column Masonry | 40px Gap</title>
+    <title>Yağmur Sorgucu</title>
     <style>
         body { 
             font-family: sans-serif; 
             background: #ffffff; 
-            padding: 40px; /* Increased padding to match the internal gaps */
+            padding: 50px;
             margin: 0;
         }
 
-        /* Container */
         .masonry-three-columns {
             margin: 0 auto;
-            max-width: 1800px; /* Wider container to accommodate large gaps */
+            max-width: 1800px;
         }
 
-        /* 4-Column Item Calculation */
-        /* Formula: 25% minus (3 gaps of 40px divided by 4 items) approx */
         .grid-item {
-            width: calc(25% - 30px); 
-            margin-bottom: 40px; /* Vertical gap */
+            width: calc(25% - 40px); 
+            margin-bottom: 50px;
             float: left;
         }
 
@@ -30,10 +27,9 @@
             display: block;
             width: 100%;
             height: auto;
-            border-radius: 0; /* Sharp edges as requested */
+            border-radius: 0;
         }
 
-        /* Responsive scaling */
         @media (max-width: 1200px) {
             .grid-item { width: calc(33.33% - 27px); }
         }
@@ -41,7 +37,7 @@
             .grid-item { width: calc(50% - 20px); }
         }
         @media (max-width: 500px) {
-            .grid-item { width: 100%; margin-bottom: 40px; }
+            .grid-item { width: 100%; margin-bottom: 50px; }
         }
     </style>
 </head>
@@ -55,9 +51,8 @@
 
     <script>
         const grid = document.querySelector('.masonry-three-columns');
-        const totalImages = 24; 
+        const totalImages = 26; 
 
-        // Generating filenames 001.jpg, 002.jpg, etc.
         for (let i = totalImages; i >= 1; i--) {
             const fileName = String(i).padStart(3, '0') + '.jpg';
             const item = document.createElement('div');
@@ -66,16 +61,14 @@
             grid.appendChild(item);
         }
 
-        // Initialize Masonry with 40px gutter
         const msnry = new Masonry(grid, {
             itemSelector: '.grid-item',
             columnWidth: '.grid-item',
             percentPosition: true,
-            gutter: 40, // Horizontal gap
-            transitionDuration: '0.3s'
+            gutter: 50,
+            transitionDuration: '0.1s'
         });
 
-        // Trigger layout as images finish loading
         imagesLoaded(grid).on('progress', function() {
             msnry.layout();
         });
