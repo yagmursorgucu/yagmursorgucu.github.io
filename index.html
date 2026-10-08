@@ -53,23 +53,28 @@
         const grid = document.querySelector('.masonry-three-columns');
         const totalImages = 26; 
 
+        const fragment = document.createDocumentFragment();
+
         for (let i = totalImages; i >= 1; i--) {
             const fileName = String(i).padStart(3, '0') + '.jpg';
             const item = document.createElement('div');
             item.className = 'grid-item';
-            item.innerHTML = `<img src="images/${fileName}" alt="Gallery Image ${fileName}">`;
-            grid.appendChild(item);
+            item.innerHTML = `<img src="images/${fileName}" alt="Gallery Image ${fileName}" loading="lazy" decoding="async">`;
+            fragment.appendChild(item);
         }
+
+        grid.appendChild(fragment);
 
         const msnry = new Masonry(grid, {
             itemSelector: '.grid-item',
             columnWidth: '.grid-item',
             percentPosition: true,
             gutter: 50,
-            transitionDuration: '0.1s'
+            transitionDuration: '0.2s'
         });
 
-        imagesLoaded(grid).on('progress', function() {
+        const imgLoad = imagesLoaded(grid);
+        imgLoad.on('progress', function(instance, image) {
             msnry.layout();
         });
     </script>
