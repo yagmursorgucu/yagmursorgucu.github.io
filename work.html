@@ -19,7 +19,10 @@
     </header>
 
     <main>
-        <div class="masonry-three-columns" id="grid"></div>
+        <div id="albumsView" class="album-grid"></div>
+        <div class="images-wrapper" style="display: none;">
+            <div class="masonry-three-columns" id="imagesGrid"></div>
+        </div>
     </main>
 
     <div class="modal" id="modal">
@@ -32,5 +35,12 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initWorkPage();
+        });
+    </script>
+
 </body>
 </html>
