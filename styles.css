@@ -70,12 +70,41 @@ main h1 {
 }
 
 .about-section {
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 100px 0;
     max-width: 800px;
 }
 
 .about-section h1 {
     margin-bottom: 40px;
+}
+
+.about-section .left {
+    flex: 1;
+}
+
+.about-section .left img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-section .right {
+    flex: 2;
+}
+
+@media (max-width: 800px) {
+    .about-section {
+        margin: 0 auto;
+        flex-direction: column;
+    }
+
+    .about-section .left,
+    .about-section .right {
+        width: 100%;
+    }
 }
 
 .about-description {
@@ -143,9 +172,11 @@ main h1 {
         width: calc(33.33% - 33.33px);
         margin-right: 50px;
     }
+
     .grid-item:nth-child(4n) {
         margin-right: 50px;
     }
+
     .grid-item:nth-child(3n) {
         margin-right: 0;
     }
@@ -154,9 +185,11 @@ main h1 {
         width: calc(33.33% - 33.33px);
         margin-right: 50px;
     }
+
     .album-item:nth-child(4n) {
         margin-right: 50px;
     }
+
     .album-item:nth-child(3n) {
         margin-right: 0;
     }
@@ -167,9 +200,11 @@ main h1 {
         width: calc(50% - 25px);
         margin-right: 50px;
     }
+
     .grid-item:nth-child(3n) {
         margin-right: 50px;
     }
+
     .grid-item:nth-child(2n) {
         margin-right: 0;
     }
@@ -177,9 +212,11 @@ main h1 {
     .album-item {
         width: calc(50% - 25px);
     }
+
     .album-item:nth-child(3n) {
         margin-right: 50px;
     }
+
     .album-item:nth-child(2n) {
         margin-right: 0;
     }
@@ -302,9 +339,11 @@ main h1 {
         width: calc(33.33% - 33.33px);
         margin-right: 50px;
     }
+
     .album-item:nth-child(3n) {
         margin-right: 0;
     }
+
     .album-item:nth-child(4n) {
         margin-right: 50px;
     }
@@ -315,9 +354,11 @@ main h1 {
         width: calc(50% - 25px);
         margin-right: 50px;
     }
+
     .album-item:nth-child(2n) {
         margin-right: 0;
     }
+
     .album-item:nth-child(3n) {
         margin-right: 50px;
     }

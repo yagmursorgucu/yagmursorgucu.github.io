@@ -94,13 +94,13 @@ function initGallery(gridSelector, masonry = true) {
         }
 
         const imgLoad = imagesLoaded(grid);
-        imgLoad.on('progress', function(instance, image) {
+        imgLoad.on('progress', function (instance, image) {
             setTimeout(() => {
                 msnry.reloadItems();
                 msnry.layout();
             }, 100);
         });
-        imgLoad.on('always', function() {
+        imgLoad.on('always', function () {
             setTimeout(() => {
                 msnry.reloadItems();
                 msnry.layout();
@@ -144,13 +144,13 @@ function initWorkPage() {
         workPageMasonry.msnryAlbums = msnryAlbums;
 
         const imgLoadAlbums = imagesLoaded(albumsView);
-        imgLoadAlbums.on('progress', function(instance, image) {
+        imgLoadAlbums.on('progress', function (instance, image) {
             setTimeout(() => {
                 msnryAlbums.reloadItems();
                 msnryAlbums.layout();
             }, 100);
         });
-        imgLoadAlbums.on('always', function() {
+        imgLoadAlbums.on('always', function () {
             setTimeout(() => {
                 msnryAlbums.reloadItems();
                 msnryAlbums.layout();
@@ -192,13 +192,13 @@ function initWorkPage() {
         workPageMasonry.msnry = msnry;
 
         const imgLoad = imagesLoaded(imagesGrid);
-        imgLoad.on('progress', function(instance, image) {
+        imgLoad.on('progress', function (instance, image) {
             setTimeout(() => {
                 msnry.reloadItems();
                 msnry.layout();
             }, 100);
         });
-        imgLoad.on('always', function() {
+        imgLoad.on('always', function () {
             setTimeout(() => {
                 msnry.reloadItems();
                 msnry.layout();
