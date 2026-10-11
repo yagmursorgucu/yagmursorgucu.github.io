@@ -85,7 +85,8 @@ function initGallery(gridSelector, masonry = true) {
         msnry = new Masonry(grid, {
             itemSelector: '.grid-item',
             columnWidth: '.grid-item',
-            gutter: 50,
+            gutter: window.innerWidth <= 500 ? 12 :
+                    window.innerWidth <= 800 ? 20 : 50,
             percentPosition: false,
             transitionDuration: '0.2s'
         });
@@ -226,6 +227,9 @@ window.addEventListener('resize', () => {
     const newColumnWidth = getColumnWidth();
 
     if (galleryMasonry) {
+        galleryMasonry.options.gutter =
+            window.innerWidth <= 500 ? 12 :
+            window.innerWidth <= 800 ? 20 : 50;
         galleryMasonry.reloadItems();
         galleryMasonry.layout();
     }
