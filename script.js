@@ -10,9 +10,9 @@ const CONFIG = {
     },
     // Work page - albums
     albums: [
-        { name: 'Kuş', folder: 'albums/kuş', imageCount: 3, coverImage: '001' },
-        { name: 'Kedi', folder: 'albums/kedi', imageCount: 3, coverImage: '002' },
-        { name: 'Kirpi', folder: 'albums/kirpi', imageCount: 3, coverImage: '003' }
+        { name: 'Moribund', folder: 'albums/moribund', imageCount: 3, coverImage: '001' },
+        { name: 'Between Us', folder: 'albums/betweeen', imageCount: 3, coverImage: '003' },
+        { name: 'Passerby', folder: 'albums/passerby', imageCount: 3, coverImage: '003' }
     ]
 };
 
@@ -84,8 +84,9 @@ function initGallery(gridSelector, masonry = true) {
     if (masonry) {
         msnry = new Masonry(grid, {
             itemSelector: '.grid-item',
-            columnWidth: getColumnWidth(),
-            percentPosition: true,
+            columnWidth: '.grid-item',
+            gutter: 50,
+            percentPosition: false,
             transitionDuration: '0.2s'
         });
 
@@ -225,7 +226,6 @@ window.addEventListener('resize', () => {
     const newColumnWidth = getColumnWidth();
 
     if (galleryMasonry) {
-        galleryMasonry.options.columnWidth = newColumnWidth;
         galleryMasonry.reloadItems();
         galleryMasonry.layout();
     }
