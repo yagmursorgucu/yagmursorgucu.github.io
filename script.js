@@ -10,9 +10,9 @@ const CONFIG = {
     },
     // Work page - albums
     albums: [
-        { name: 'Moribund', folder: 'albums/moribund', imageCount: 3, coverImage: '001' },
-        { name: 'Between Us', folder: 'albums/betweeen', imageCount: 21, coverImage: '003' },
-        { name: 'Passerby', folder: 'albums/passerby', imageCount: 3, coverImage: '003' }
+        { name: 'Passerby', folder: 'albums/passerby', imageCount: 3, coverImage: '001' },
+        { name: 'Between Us', folder: 'albums/between', imageCount: 21, coverImage: '003' },
+        { name: 'Moribund', folder: 'albums/moribund', imageCount: 3, coverImage: '003' }
     ]
 };
 
