@@ -46,13 +46,13 @@ header {
 
 nav {
     display: flex;
-    gap: 40px;
+    gap: 35px;
 }
 
 nav a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 1px;
     transition: opacity 0.2s;
 }
@@ -74,6 +74,7 @@ main h1 {
 #workTitle {
     cursor: pointer;
     transition: opacity 0.2s;
+   
 }
 
 #workTitle:hover {
@@ -181,7 +182,7 @@ main h1 {
     display: flex;
     align-items: center;
     gap: 24px;
-    margin: 100px 0;
+    margin: 100px;
     max-width: 900px;
 }
 
@@ -205,7 +206,7 @@ main h1 {
 }
 
 .about-description {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     color: #e8e8e8f6;
     margin-bottom: 80px;
@@ -230,12 +231,22 @@ main h1 {
     opacity: 0.6;
 }
 
+.contact-link-icon {
+    color: #f5f1e8;
+}
+
 .contact-link-icon svg {
     width: 70%;
     height: 70%;
-    color: #f6f5f5;
 }
 
+.contact-link-icon svg path,
+.contact-link-icon svg rect {
+    stroke: currentColor !important;
+}
+.contact-link-icon svg path {
+    fill: currentColor;
+}
 /* Albums */
 .album-item {
     width: calc(25% - 38px);
@@ -261,7 +272,7 @@ main h1 {
 
 .album-name {
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 400;
     text-align: center;
     color: #ffffff;
@@ -470,3 +481,61 @@ width: calc((100% - 12px) / 2);
 margin-bottom: 20px;
 }
 }
+
+/* Yalnızca Between Us albümü */
+#imagesGrid.between-us-grid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imagesGrid.between-us-grid .grid-item {
+    width: calc((100% - 150px) / 4);
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+#imagesGrid.between-us-grid .grid-item:nth-child(4n) {
+    margin-right: 0;
+}
+
+#imagesGrid.between-us-grid .grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Tablet: 3 sütun */
+@media (max-width: 1200px) {
+    #imagesGrid.between-us-grid .grid-item {
+        width: calc((100% - 100px) / 3);
+        margin-right: 50px;
+    }
+
+    #imagesGrid.between-us-grid .grid-item:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+
+/* Mobil: 2 sütun */
+@media (max-width: 800px) {
+    #imagesGrid.between-us-grid .grid-item {
+        width: calc((100% - 20px) / 2);
+        margin-right: 20px;
+        margin-bottom: 24px;
+    }
+
+    #imagesGrid.between-us-grid .grid-item:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    #imagesGrid.between-us-grid .grid-item {
+        width: calc((100% - 12px) / 2);
+        margin-right: 12px;
+        margin-bottom: 24px;
+    }
+}
+
+

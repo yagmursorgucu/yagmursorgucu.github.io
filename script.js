@@ -10,9 +10,9 @@ const CONFIG = {
     },
     // Work page - albums
     albums: [
-        { name: 'Passerby', folder: 'albums/passerby', imageCount: 3, coverImage: '001' },
+        { name: 'Passerby', folder: 'albums/passerby', imageCount: 8, coverImage: '006' },
         { name: 'Between Us', folder: 'albums/between', imageCount: 21, coverImage: '003' },
-        { name: 'Moribund', folder: 'albums/moribund', imageCount: 3, coverImage: '003' }
+        { name: 'Moribund', folder: 'albums/moribund', imageCount: 3, coverImage: '001' }
     ]
 };
 
@@ -165,7 +165,10 @@ function initWorkPage() {
         albumsView.style.display = 'none';
         imagesWrapper.style.display = 'block';
         imagesGrid.innerHTML = '';
-
+        imagesGrid.classList.toggle(
+            'between-us-grid',
+            album.name === 'Between Us'
+        );
         const fragment = document.createDocumentFragment();
 
         for (let i = album.imageCount; i >= 1; i--) {
@@ -184,13 +187,22 @@ function initWorkPage() {
 
         imagesGrid.appendChild(fragment);
 
-        if (msnry) msnry.destroy();
+        
+        if (msnry) {
+            msnry.destroy();
+        }
+
+        const isBetweenUs = album.name === 'Between Us';
+
         msnry = new Masonry(imagesGrid, {
             itemSelector: '.grid-item',
-            columnWidth: getColumnWidth(),
-            percentPosition: true,
+            columnWidth: '.grid-item',
+            gutter: window.innerWidth <= 500 ? 12 :
+                    window.innerWidth <= 800 ? 20 : 50,
+            percentPosition: false,
             transitionDuration: '0.2s'
         });
+        
         workPageMasonry.msnry = msnry;
 
         const imgLoad = imagesLoaded(imagesGrid);
