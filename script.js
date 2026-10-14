@@ -11,7 +11,7 @@ const CONFIG = {
     // Work page - albums
     albums: [
         { name: 'Passerby', folder: 'albums/passerby', imageCount: 8, coverImage: '006' },
-        { name: 'Between Us', folder: 'albums/between', imageCount: 21, coverImage: '003' },
+        { name: 'Between Us', folder: 'albums/between', imageCount: 21, coverImage: '013' },
         { name: 'Moribund', folder: 'albums/moribund', imageCount: 3, coverImage: '001' }
     ]
 };
