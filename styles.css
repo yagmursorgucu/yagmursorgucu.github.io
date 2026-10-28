@@ -405,6 +405,11 @@ nav {
     header {
         padding: 20px;
     }
+    
+    .logo a span {
+        display: block;
+        line-height: 1.05;
+    }
 
     nav {
         gap: 20px;
